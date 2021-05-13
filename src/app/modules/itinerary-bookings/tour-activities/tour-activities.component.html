@@ -1,0 +1,29 @@
+<div class="wrapperHead gr">
+  <div>
+    <h1>Tour Activities in {{ city.attributes.name }}</h1>
+  </div>
+  <form class="wrapper" [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+    <div>
+      <label class="search">
+        <input class="border-2 tr bg-white h-10 px-8 rounded-lg text-sm focus:outline-none"
+          type="search" name="search" formControlName="text">
+      </label>
+    </div>
+
+    <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0 flex jw-e">
+      <div class="relative">
+        <ng-container *ngIf="affiliateState && affiliateState.activityTypes && affiliateState.activityTypes.data && affiliateState.activityTypes.data.length > 0">
+          <select class="block appearance-none w-full td py-1 px-1 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" 
+            id="grid-state" formControlName="category">
+            <option></option>
+            <option *ngFor="let item of affiliateState.activityTypes.data" [ngValue]="item">{{ item.attributes.name }}</option>
+          </select>
+        </ng-container>
+      </div>
+
+      <div class="butt">
+        <button type="submit">Search</button>
+      </div>
+    </div>
+  </form>
+</div>

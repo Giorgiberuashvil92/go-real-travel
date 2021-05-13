@@ -1,0 +1,32 @@
+.wrapper {
+    .question {
+        font-size: 22px;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .actions {
+        width: 100%;
+        padding: 0 10%;
+        
+        button {
+            font-size: 17px;
+            width: 138px;
+            height: 50px;
+            border-radius: 10px;
+            font-weight: 600;
+        }
+        
+        .no-button {
+            border-color: #02A388;
+            border-width: 3px;
+            color: #02A388;
+        }
+    
+        .yes-button {
+            color: #fff;
+            background-color: #02A388;
+        }
+    }
+}

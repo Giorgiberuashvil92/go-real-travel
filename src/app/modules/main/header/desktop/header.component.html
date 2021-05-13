@@ -1,0 +1,88 @@
+
+<div class="wrapper">
+  <img src="/assets/go-real-travel-icon.svg" alt="">
+
+  
+  <div class="pages-wrapper">
+    <div class="page settings" (click)="dialogService.openDialog('arriveDay')">
+      <img src="/assets/settings-icon.svg" alt="">
+    </div>
+
+    <a class="page" 
+      [ngClass]="{ 'page__active': router.url.includes('/trips') && !router.url.includes('/bookings') }"
+      [routerLink]="itineraryId ? ['trips', itineraryId] : null"
+    >Itinerary</a>
+    
+    <a class="page manage-trip" 
+      [ngClass]="{ 
+        'page__active': router.url.includes('/trips') && router.url.includes('/bookings'),
+        'manage-trip__active': isManageTripOpen
+      }"
+      (mouseenter)="isManageTripOpen = true" (mouseleave)="isManageTripOpen = false"
+    >
+      <a 
+        [routerLink]="itineraryId ? ['trips', itineraryId, 'bookings'] : null"
+        (click)="itineraryService.bookingOptionIndex.next(0)">Manage Trip</a>
+      
+      <div class="manage-trip-menu" [ngClass]="{ 'manage-trip-menu__active': isManageTripOpen }">
+        <ng-container *ngFor="let item of manageTripItems; let i = index">
+          <a class="manage-trip-item" 
+            [ngClass]="{ 'manage-trip-item__active': router.url.includes('/trips') && router.url.includes('/bookings') && itineraryService.bookingOptionIndex.value === i}"
+            [routerLink]="itineraryId ? ['trips', itineraryId, 'bookings'] : null"
+            (click)="itineraryService.bookingOptionIndex.next(i)">
+            <img [src]="item.imageURL" alt="">
+            <div class="title">{{ item.name }}</div>
+          </a>
+  
+          <div class="horizontal-line" *ngIf="i !== manageTripItems.length - 1"></div>        
+        </ng-container>
+      </div>
+    </a>
+
+    
+
+    <div class="page" 
+      [ngClass]="{ 'page__active': router.url.includes('zzzzzz') }"
+    >Map</div>
+
+    <div class="vertical-line"></div>
+
+    <div class="trips">+ Trips</div>
+    <div class="balance"
+      [ngClass]="{
+        'balance__active': isCurrencyOpen
+      }"
+      (mouseenter)="isCurrencyOpen = true" (mouseleave)="isCurrencyOpen = false">
+
+      <span>$ USD</span>
+
+      <div class="balance-menu" [ngClass]="{ 'balance-menu__active': isCurrencyOpen }">
+        <div class="currency">$ USD</div>
+        <div class="currency">$ AUD</div>
+        <div class="currency">$ CAD</div>
+        <div class="currency">$ NZD</div>
+        <div class="currency">$ SGD</div>
+        <div class="currency">£ GBP</div>
+        <div class="currency">€ EUR</div>
+      </div>
+    </div>
+
+
+    <div class="user" (mouseenter)="isUserOpen = true" (mouseleave)="isUserOpen = false" [ngClass]="{ 'user__active': isUserOpen }">
+      <div class="green-wrapper">
+        <img src="/assets/user-icon.svg" alt="">
+      </div>
+      <div class="username">Username22138</div>
+
+      <div class="triangle" *ngIf="isUserOpen"></div>
+
+      <div class="user-menu" [ngClass]="{ 'user-menu__active': isUserOpen }">
+        <div class="name">Mr.John Doe</div>
+        <div class="edit-profile">Edit Profile</div>
+        <div class="log-out">Log Out</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  

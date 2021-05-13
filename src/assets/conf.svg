@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="13.983" height="14" viewBox="0 0 13.983 14">
+  <g id="tickets" transform="translate(-0.314)">
+    <g id="Group_673" data-name="Group 673" transform="translate(0.314)">
+      <g id="Group_672" data-name="Group 672">
+        <circle id="Ellipse_38" data-name="Ellipse 38" cx="0.546" cy="0.546" r="0.546" transform="translate(9.34 10.723)" fill="#767388"/>
+        <circle id="Ellipse_39" data-name="Ellipse 39" cx="0.546" cy="0.546" r="0.546" transform="translate(8.084 3.677)" fill="#767388"/>
+        <path id="Path_85" data-name="Path 85" d="M13.751,8.538H14.3V5.261H12.9A1.092,1.092,0,0,1,12.4,3.2l.465-.242L11.475,0,.327,5.258v0H.314V8.538H.86a1.092,1.092,0,1,1,0,2.185H.314V14H14.3V10.723h-.546a1.092,1.092,0,1,1,0-2.185Zm-6-5.572A.546.546,0,0,0,8.734,2.5l2.219-1.046.506,1.076a2.182,2.182,0,0,0-.445,2.731H2.882Zm5.458,8.78v1.162H10.746a.546.546,0,0,0-1.092,0H1.406V11.746a2.185,2.185,0,0,0,0-4.231V6.353H9.654a.546.546,0,1,0,1.092,0H13.2V7.515a2.185,2.185,0,0,0,0,4.231Z" transform="translate(-0.314)" fill="#767388"/>
+        <circle id="Ellipse_40" data-name="Ellipse 40" cx="0.546" cy="0.546" r="0.546" transform="translate(9.34 7.446)" fill="#767388"/>
+        <circle id="Ellipse_41" data-name="Ellipse 41" cx="0.546" cy="0.546" r="0.546" transform="translate(9.34 9.084)" fill="#767388"/>
+      </g>
+    </g>
+  </g>
+</svg>

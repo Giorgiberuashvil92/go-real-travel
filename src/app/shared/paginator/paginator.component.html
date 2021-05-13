@@ -1,0 +1,13 @@
+<div class="h-16 w-full flex justify-between items-center">
+    <img class="cursor-pointer" (click)="onLeft()" src="/assets/lower-than-icon.svg">
+
+    <div *ngFor="let p of pagesArr"
+        class="cursor-pointer"
+        [ngClass]="{ 'is-active': p === currentPage }"
+        (click)="onClick(p)">
+
+        {{ p }}
+
+    </div>
+    <img class="cursor-pointer" (click)="onRight()" src="/assets/higher-than-icon.svg">
+</div>

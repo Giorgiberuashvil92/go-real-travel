@@ -1,0 +1,28 @@
+<div class="wrapper">
+    <div class="bon-voyage">
+        Bon Voyage!
+    </div>
+    
+    <div class="middle">
+        <img src="/assets/go-real-travel-icon.svg" alt="">
+
+        <div class="animation-wrapper">
+            <img class="dots" src="/assets/redirect-dots.svg" alt="">
+            <img class="plane main" src="/assets/redirect-plane.svg" alt="" 
+                [style.left]="planeLeft + '%'" 
+                [style.top]="planeTop + '%'"
+                [style.transform]="'translate(-50%, -50%) rotate(' + planeRotation + 'deg)'"
+                [style.opacity]="planeOpacity">
+            <img class="plane secondary" src="/assets/redirect-plane.svg" alt="" [style.opacity]="fadedOpacity">
+        </div>
+
+        <img src="/assets/musement-icon.svg" alt="" *ngIf="route.snapshot.queryParams.isTransport === 'false'">
+        <img class="omio-icon" src="/assets/omio-icon.PNG" alt="" *ngIf="route.snapshot.queryParams.isTransport === 'true'">
+    </div>
+
+    <div class="description">
+        You're taking an excursion to the website of our trusted booking partner.
+        <br>
+        Don't worry, we're right here waiting for you!
+    </div>
+</div>

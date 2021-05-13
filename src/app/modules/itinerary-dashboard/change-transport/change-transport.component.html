@@ -1,0 +1,75 @@
+<ng-container *ngIf="itineraryState">
+    <mat-dialog-content  *ngIf="!itineraryState.updateTourOrTransportLoading && isLoaded && !isSubmitted; else elseBlock">
+        <div class="wrapper relative">
+            <img class="close-dialog-btn absolute cursor-pointer" src="/assets/close-dialog-icon.svg" alt="" (click)="dialogService.closeDialog()">
+            
+            <div class="change-activity">
+                What transportation do you prefer?
+            </div>
+        
+            <div class="activity-wrapper">
+                <div class="activity relative flex cursor-pointer"
+                    [ngClass]="{ 'activity__active': 0 === currentIndex}"
+                    (click)="currentIndex = 0">
+
+                    <div class="current-icon" *ngIf="0 === currentIndex">
+                        <img src="/assets/tick-circle-icon.svg" alt="">
+                    </div>
+                    
+                    <div class="current absolute flex items-center">
+                        <div class="current-text">
+                            Current
+                        </div>
+                    </div>
+                    
+                    <div class="image" [style.background-image]="'url(\'' + itineraryState.tour.attributes['square-image-url'] + '\')'"></div>
+        
+                    <div class="detail-wrapper">
+                        <div class="title">
+                            {{ itineraryState.tour.attributes['transport-type'] |titlecase }}
+                        </div>
+
+                        <div class="description">
+                            {{ itineraryState.tour.attributes.name }}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="activity relative flex cursor-pointer" 
+                    *ngFor="let d of itineraryState.alternateTours.data; let i=index"
+                    [ngClass]="{ 'activity__active': i === currentIndex-1}" 
+                    (click)="currentIndex = i + 1">
+
+                    <div class="current-icon" *ngIf=" i === currentIndex-1">
+                        <img src="/assets/tick-circle-icon.svg" alt="">
+                    </div>
+                    
+                    <div class="image" [style.background-image]="'url(\'' + d.attributes['image-url'] + '\')'"></div>
+        
+                    <div class="detail-wrapper">
+                        <div class="title">
+                            {{ d.attributes['transport-type'] | titlecase }}
+                        </div>
+
+                        <div class="description">
+                            {{ d.attributes.name }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="actions absolute flex justify-between">
+                <button class="cancel-button" (click)="dialogService.closeDialog()">
+                    CANCEL
+                </button>
+                <button class="ok-button" (click)="onOK(itineraryState)">
+                    OK
+                </button>
+            </div>
+        </div>
+    </mat-dialog-content>
+
+    <ng-template #elseBlock>
+        <app-loader></app-loader>
+    </ng-template>
+</ng-container>

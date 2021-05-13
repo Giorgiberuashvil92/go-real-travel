@@ -1,0 +1,179 @@
+.wrapper {
+    user-select: none;
+    
+    .city {
+        font-size: 22px;
+        font-weight: 600;
+        color: #1A1538;
+        margin-left: 3px;
+    }
+
+    .days-wrapper {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 5px;
+
+        .days-inner-wrapper {
+            display: flex;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+        }
+        
+        .day-and-x {
+            display: flex;
+            justify-content: flex-start;
+            position: relative;
+            flex: 1 1 20%;
+            margin-top: 2px;
+            
+            .day-wrapper {
+                width: 72px;
+                height: 72px;
+                border-radius: 5px;
+                border-width: 1px;
+                margin-right: 2px;
+                display: flex;
+                flex-flow: column;
+                align-items: center;
+                justify-content: space-around;
+                position: relative;
+                background-color: transparent;
+                overflow: hidden;
+                
+                &__fill {
+                    &--clear {
+                        border-color: #9C9C9C;
+    
+                        .day-text {
+                            color: #74D6B5;
+                        }
+    
+                        .num {
+                            color: #02A388;
+                        }
+    
+                        .name-dd-month {
+                            color: #1A1538;
+                        }
+                    }
+                    
+                    &--half {
+                        border-color: #02A388;
+    
+                        .day-text {
+                            color: #1A1538;
+                        }
+    
+                        .num {
+                            color: #1A1538;
+                        }
+    
+                        .name-dd-month {
+                            color: #1A1538;
+                        }
+                    }
+                    
+                    &--full {
+                        border-color: #02A388;
+                        background-color: #02A388;
+    
+                        .day-text {
+                            color: #74D6B5;
+                        }
+    
+                        .num {
+                            color: #FFFFFF;
+                        }
+    
+                        .name-dd-month {
+                            color: #74D6B5;
+                        }
+                    }
+                }
+                
+                &__hasX {
+                    border-color: #C25A5A;
+                    color: #1A1538;
+                }
+    
+                .day-text {
+                    font-size: 12px;
+                    font-weight: 600;
+                    z-index: 1;
+                }
+    
+                .num {
+                    font-size: 30px;
+                    font-weight: 700;
+                    z-index: 1;
+                    line-height: 22px;
+                }
+    
+                .name-dd-month {
+                    font-size: 11px;
+                    z-index: 1;
+                    font-weight: 600;
+                }
+    
+                .fill-top {
+                    position: absolute;
+                    background-color: #02A388;
+                    width: 142%;
+                    height: 142%;
+                    transform: translate(-35%, -35%) rotate(45deg);
+                }
+    
+                .fill-bottom {
+                    position: absolute;
+                    background-color: #02A388;
+                    width: 142%;
+                    height: 142%;
+                    transform: translate(35%, 35%) rotate(45deg);
+                }
+            }
+    
+            .x-icon-wrapper {
+                z-index: 5;
+                position: absolute;
+                bottom: -14px;
+                left: 26px;
+                height: 20px;
+                width: 20px;
+                border-radius: 50%;
+                border-color: #C25A5A;
+                border-width: 1px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: #FFFFFF;
+                cursor: pointer;
+    
+                img {
+                    display: block;
+                    width: 10px;
+                    height: 10px;
+                }
+            }
+
+        }
+
+        .add-day {
+            display: flex;
+            flex-flow: column;
+            justify-content: space-evenly;
+            align-items: center;
+            height: 72px;
+
+            .add-day-text {
+                width: 61px;
+                color: #02A388;
+                font-size: 14px;
+                font-weight: 600;
+            }
+
+            img {
+                cursor: pointer;
+            }
+        }
+    }
+}

@@ -1,0 +1,67 @@
+<!-- <div class="wrapperHead gr">
+    <div>
+        <h1>Tour Activities in {{ city.attributes.name }}</h1>
+    </div>
+</div> -->
+<div class="wrapper flex" >
+  <div class="pd-r">
+    <h1 class="h-bf">My Bookings</h1>
+   <div class="column-div">
+    <div class="sv-div">
+      <div class="frst-sv">
+        <div class="sav-inf shadow-lg">
+        <img src="/assets/diskete.svg" alt="work">
+      </div>
+      <div class="pd-c"><p>Save a Booking You have Made</p></div>
+    </div>
+    </div>
+    <div class="plane shadow-lg">
+      <div class="mini-plane">
+        <div class="sz-f" class="flex" style="font-size: 12px; font-weight: 600; color: #707070;"><div style="font-weight: 400; color: #707070; font-size: 12px;">Date:</div> 21 FEB 2021</div>
+        <div><img src="../../../../assets/airplane.svg" alt=""></div>
+      </div>
+      <div class="flight">Flight to Prague</div>
+      <div class="location-right">
+        <div class="location-img">
+        <img src="../assets/location-right.svg" alt="">
+        </div>
+        <div class="location-texts">
+          <div >Depart Times</div>
+          <div style="color :#D15A5A; font-size: 10px; font-weight: 600;">11:25(11:25AM)</div>
+          <div>Departing Airport</div>
+          <div style="color :#D15A5A; font-size: 10px; font-weight: 600;">New York JFK</div>
+        </div>
+      </div>
+      <div class="location-left">
+        <div class="location-img">
+        <img src="../assets/location-left.svg" alt="">
+        </div>
+        <div class="location-texts">
+          <div>Depart Times</div>
+          <div style="color: #02A388; font-weight: 600;">11:25(11:25AM)</div>
+          <div>Departing Airport</div>
+          <div style="color: #02A388; font-weight: 600;">New York JFK</div>
+        </div>
+      </div>
+      <div class="booked">
+        <div class="booked">
+          <div class="icon">
+            <img src="/assets/booked.svg" alt="">
+          </div>
+          <div class="booked-txt">Booked</div>
+        </div>
+        <div class="booked-pdf"><img src="../assets/pdf.svg" alt="alt"></div>
+      </div>
+    </div>
+   </div>
+  </div>
+</div>
+
+<div class="transportation-wrapper">
+  <ng-container *ngFor="let i of affiliateState.partnerTransports.data">
+    <div class="header">{{ i.attributes.title }}</div>
+    <ng-container *ngIf="affiliateState && !affiliateState.partnerTransportsLoading && affiliateState.partnerTransports && affiliateState.partnerTransports.data && affiliateState.partnerTransports.data.length > 0">
+      <app-partner-transport *ngFor="let item of i.attributes.transportations" [item]="item"></app-partner-transport>
+    </ng-container>
+  </ng-container>
+</div>

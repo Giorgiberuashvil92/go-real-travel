@@ -1,0 +1,118 @@
+.bg-col{
+  width: 120px;
+  height: 120px;
+}
+.tx-c{
+  color: red;
+}
+.btm{
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color:white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.h-bf{
+  font-size: 30px;
+  font-weight: bold;
+  color: #02A388;
+}
+.pd-r{
+  padding-left: 5%;
+  width: 100%;
+}
+
+.sav-inf{
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  width: 140px;
+  height: 140px;
+  border-bottom: 1px solid whitesmoke;
+}
+.pd-c{
+  color: #02A388;
+  font-size: 13px;
+}
+.sv-div{
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  justify-content: space-between;
+}
+.scnd-sv{
+  background-color: white;
+  width: 199px;
+  height: 295px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px 10px 20px;
+  border-radius: 10px;
+}
+.frst-sv{
+  margin-top: 50px;
+}
+
+.cl{
+  width: 180px;
+  height: 100;
+  object-fit: contain;
+}
+.cl-2{
+  font-size: 14px;
+  font-weight: bold;
+  color: #02A388;
+}
+
+.cl-3{
+  font-size: 11px;
+  color: #767388;
+}
+
+.cl-4 p{
+  font-size: 10px;
+  color: #767388;
+}
+.cl-4{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 85px;
+  justify-content: space-evenly;
+}
+.cl-5{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 40px;
+  justify-content: space-evenly;
+}
+
+.cl-5 p{
+  font-size: 10px;
+  color: #767388;
+}
+.cl-6{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 80px;
+  justify-content: space-evenly;
+}
+
+.cl-6 p{
+  font-size: 10px;
+  color: #767388;
+}
+
+.cicle{
+  display: flex;
+  justify-content: space-between;
+  padding-left: 5%;
+}
+
+.pd-f{
+  right: -100px;
+  margin-bottom: 20px;
+}

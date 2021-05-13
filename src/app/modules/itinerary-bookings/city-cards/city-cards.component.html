@@ -1,0 +1,51 @@
+<div class="wrapper">
+
+  <div class="gr-t">
+    <h1>City Cards & Local Transport in {{ city.attributes.name }}</h1>
+  </div>
+
+  <ng-container *ngIf="affiliateState && !affiliateState.partnerActivitiesLoading && affiliateState.partnerActivities.data && affiliateState.partnerActivities.data.length > 0">
+    <a class="block mini-wrapper" *ngFor="let item of dataToShow"
+    (click)="affiliateService.onRedirect(item)">
+  
+      <div class="pr-img">
+        <div class="img" [style.background-image]="'url(\'' + item.attributes['image-url'] + '\')'"></div>
+      </div>
+  
+      <div class="parg">
+  
+        <div>
+          <h1>{{item.attributes.title}}</h1>
+        </div>
+  
+        <div class="parg-2">
+          <p>{{item.attributes.description}}</p>
+        </div>
+  
+        <div class="clock">
+          <div><img src="/assets/clock.svg" alt="work"></div>
+          <div class="fnt" *ngIf="!item.attributes.duration; else durationBlock">
+            <p>Validity:</p>
+            <p>Flexible</p>
+          </div>
+          <ng-template #durationBlock>
+            <div class="fnt">
+              <p>Duration:</p>
+              <p>{{item.attributes.duration}}</p>
+            </div>
+          </ng-template>
+        </div>
+  
+        <div class="enhance">
+          <div class="tckt">
+            <p>{{'Entrance Tickets'}}</p>
+          </div>
+  
+          <div class="money">
+            <p>{{item.attributes.price | currency: item.attributes.currency}}</p>
+          </div>
+        </div>
+      </div>
+    </a>
+  </ng-container>
+</div>

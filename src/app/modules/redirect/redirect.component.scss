@@ -1,0 +1,69 @@
+.wrapper {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+
+    .bon-voyage {
+        color: #02A388;
+        font-size: 30px;
+        font-weight: 600;
+    }
+
+    .middle {
+        margin-top: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        >img {
+            width: 270px;
+            height: 55px;
+            margin: 0px 10px;
+            transform: translateY(12px);
+            width: 28%;
+        }
+
+        .animation-wrapper {
+            position: relative;
+            z-index: 10;
+            
+            .dots {
+
+            }
+
+            .plane {
+                position: absolute;
+                width: 28%;
+                max-width: 60px;
+            }
+
+            .main {
+                transform: translate(-50%, -50%);
+            }
+
+            .secondary {
+                transform: translate(-50%, -50%) rotate(30deg);
+                left: 100%;
+                top: 112.5%;
+            }
+        }
+
+        .omio-icon {
+            width: 16%;
+            margin-right: 12%;
+            height: 5vw;
+            max-height: 62px;
+        }
+    }
+
+    .description {
+        margin-top: 50px;
+        color: #1A1538;
+        font-size: 18px;
+        font-weight: 400;
+        text-align: center;
+    }
+}

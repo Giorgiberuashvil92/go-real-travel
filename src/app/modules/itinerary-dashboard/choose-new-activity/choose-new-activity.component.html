@@ -1,0 +1,203 @@
+<ng-container *ngIf="itineraryState && sortedArrayIndexesToUse.length > 0">
+    <ng-container *ngIf="!tourPostLoading; else elseBlock">
+
+        <div class="wrapper relative" [ngSwitch]="itineraryState.tourSolutions.data[sortedArrayIndexesToUse[activeSolutionIndex]].attributes.type">
+            <img class="close-dialog-btn absolute cursor-pointer" src="/assets/close-dialog-icon.svg" alt="" (click)="dialogService.closeDialog()">
+            <!-- compadre -->
+            <ng-container *ngSwitchCase="'compadre'">
+                <div class="replace-day">
+                    How about we replace <span class="replace-day-number">{{ findOriginalTour().attributes.name }}</span> with <span class="replace-day-number">{{ itineraryState.tourSolutions.data[sortedArrayIndexesToUse[activeSolutionIndex]].attributes.name }}</span>
+                </div>
+            
+                
+                <div class="current-new flex justify-between">
+                    <div class="activity-wrapper">
+                        <div class="current">
+                            Current - Day {{ itineraryState.tourSolutions.data[sortedArrayIndexesToUse[activeSolutionIndex]].attributes['day-index'] }}
+                        </div>
+            
+                        <div class="activity relative flex cursor-pointer" 
+                            *ngFor="let oldTour of itineraryState.tourSolutions.data[sortedArrayIndexesToUse[activeSolutionIndex]].attributes['old-day-tours'].data; let i=index">
+                            
+                            <div class="image" [style.background-image]="'url(\'' + oldTour.attributes['square-image-url'] + '\')'"></div>
+                
+                            <div class="detail-wrapper">
+                                <div class="city-detail">
+                                    {{ itineraryService.findCityById(itineraryState, oldTour.relationships.city.data.id).attributes.name }}
+                                </div>
+                
+                                <div class="city-detail">
+                                    {{ oldTour.attributes['name'] }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <div class="activity-wrapper">
+                        <div class="new">
+                            New
+                        </div>
+            
+                        <div class="activity relative flex cursor-pointer" 
+                            *ngFor="let newTour of itineraryState.tourSolutions.data[sortedArrayIndexesToUse[activeSolutionIndex]].attributes['new-day-tours'].data; let i=index">
+                            
+                            <div class="image" [style.background-image]="'url(\'' + newTour.attributes['square-image-url'] + '\')'"></div>
+                
+                            <div class="detail-wrapper">
+                                <div class="city-detail">
+                                    {{ itineraryService.findCityById(itineraryState, newTour.relationships.city.data.id).attributes.name }}
+                                </div>
+                
+                                <div class="city-detail">
+                                    {{ newTour.attributes['name'] }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+    
+            <!-- component-group -->
+            <ng-container *ngSwitchCase="'component-group'">
+                <div class="replace-day">
+                    Do you want to <span class="replace-day-number">change day {{ itineraryState.tourSolutions.data[sortedArrayIndexesToUse[activeSolutionIndex]].attributes['day-index'] }}</span> as suggested below?
+                </div>
+            
+                
+                <div class="current-new flex justify-between">
+                    <div class="activity-wrapper">
+                        <div class="current">
+                            Current - Day {{ itineraryState.tourSolutions.data[sortedArrayIndexesToUse[activeSolutionIndex]].attributes['day-index'] }}
+                        </div>
+            
+                        <div class="activity relative flex cursor-pointer" 
+                            *ngFor="let oldTour of itineraryState.tourSolutions.data[sortedArrayIndexesToUse[activeSolutionIndex]].attributes['old-day-tours'].data; let i=index">
+                            
+                            <div class="image" [style.background-image]="'url(\'' + oldTour.attributes['square-image-url'] + '\')'"></div>
+                
+                            <div class="detail-wrapper">
+                                <div class="city-detail">
+                                    {{ itineraryService.findCityById(itineraryState, oldTour.relationships.city.data.id).attributes.name }}
+                                </div>
+                
+                                <div class="city-detail">
+                                    {{ oldTour.attributes['name'] }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <div class="activity-wrapper">
+                        <div class="new">
+                            New
+                        </div>
+            
+                        <div class="activity relative flex cursor-pointer" 
+                            *ngFor="let newTour of itineraryState.tourSolutions.data[sortedArrayIndexesToUse[activeSolutionIndex]].attributes['new-day-tours'].data; let i=index">
+                            
+                            <div class="image" [style.background-image]="'url(\'' + newTour.attributes['square-image-url'] + '\')'"></div>
+                
+                            <div class="detail-wrapper">
+                                <div class="city-detail">
+                                    {{ itineraryService.findCityById(itineraryState, newTour.relationships.city.data.id).attributes.name }}
+                                </div>
+                
+                                <div class="city-detail">
+                                    {{ newTour.attributes['name'] }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+    
+            <!-- new-day-group -->
+            <ng-container *ngSwitchCase="'new-day-group'">
+                <div class="replace-day">
+                    Do you want to add a new day to your trip?
+                </div>
+            
+                <div class="current-new flex justify-center">
+                    <div class="activity-wrapper">
+                        <div class="new">
+                            New
+                        </div>
+            
+                        <div class="activity relative flex cursor-pointer" 
+                            *ngFor="let newTour of itineraryState.tourSolutions.data[sortedArrayIndexesToUse[activeSolutionIndex]].attributes['new-day-tours'].data; let i=index">
+                            
+                            <div class="image" [style.background-image]="'url(\'' + newTour.attributes['square-image-url'] + '\')'"></div>
+                
+                            <div class="detail-wrapper">
+                                <div class="city-detail">
+                                    {{ itineraryService.findCityById(itineraryState, newTour.relationships.city.data.id).attributes.name }}
+                                </div>
+                
+                                <div class="city-detail">
+                                    {{ newTour.attributes['name'] }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+    
+            <!-- new-day-component -->
+            <ng-container *ngSwitchCase="'new-day-component'">
+                <div class="replace-day">
+                    Do you want to add a new day to your trip?
+                </div>
+            
+                <div class="current-new flex justify-center">
+                    <div class="activity-wrapper">
+                        <div class="new">
+                            New
+                        </div>
+            
+                        <div class="activity relative flex cursor-pointer" 
+                            *ngFor="let newTour of itineraryState.tourSolutions.data[sortedArrayIndexesToUse[activeSolutionIndex]].attributes['new-day-tours'].data; let i=index">
+                            
+                            <div class="image" [style.background-image]="'url(\'' + newTour.attributes['square-image-url'] + '\')'"></div>
+                
+                            <div class="detail-wrapper">
+                                <div class="city-detail">
+                                    {{ itineraryService.findCityById(itineraryState, newTour.relationships.city.data.id).attributes.name }}
+                                </div>
+                
+                                <div class="city-detail">
+                                    {{ newTour.attributes['name'] }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+    
+            <div class="actions absolute flex justify-between" [ngClass]="{ 'actions__more-invisible': !isMoreOptionsVisible }">
+                <button class="confirm-button" (click)="onConfirm()">
+                    CONFIRM
+                </button>
+                <button class="cancel-button" (click)="onCancel()">
+                    CANCEL
+                </button>
+                <button class="more-options-button" *ngIf="isMoreOptionsVisible" (click)="onMoreOptions()">
+                    MORE OPTIONS
+                </button>
+            </div>
+    
+            <div class="counter-wrapper">
+                <div class="dot" 
+                    *ngFor="let item of sortedArrayIndexesToUse; let i=index"
+                    [ngClass]="{ 'dot__active': i === activeSolutionIndex }"
+                ></div>
+            </div>
+    
+            <img class="arrow-left cursor-pointer" (click)="onLeft()" src="/assets/lower-than-icon.svg">
+            <img class="arrow-right cursor-pointer" (click)="onRight()" src="/assets/higher-than-icon.svg">
+        </div>
+    </ng-container>
+
+    <ng-template #elseBlock>
+        <app-loader></app-loader>
+    </ng-template>
+</ng-container>

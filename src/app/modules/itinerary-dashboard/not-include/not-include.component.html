@@ -1,0 +1,47 @@
+<div class="wrapper relative">
+    <img class="close-dialog-btn absolute cursor-pointer" src="/assets/close-dialog-icon.svg" alt="" (click)="dialogService.closeDialog()">
+        
+    <div class="least-days-error">
+        <img src="/assets/warning-icon.svg" alt="">
+        <div class="text">
+            Sorry, with these new dates we will not be able to include the below
+            activities in the revised itirenary. They will be replaced with new
+        </div>
+    </div>
+
+    <div class="cities-wrapper">
+        <div class="city" *ngFor="let c of cities">
+            <div class="name">{{ c.name }}</div>
+            <div class="places-wrapper">
+                <div class="place flex" *ngFor="let p of c.places">
+                    <div class="image" [style.background-image]="'url(\'' + p.img + '\')'"></div>
+
+                    <div class="detail-wrapper">
+                        <div class="title">
+                            {{ p.title }}
+                        </div>
+
+                        <div class="self-guided">
+                            {{ p.isSelfGuided ? '(Self Guided)' : '' }}
+                        </div>
+
+                        <div class="time-interval">
+                            {{ p.timeInterval }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div style="margin-bottom: 80px"></div>
+
+    <div class="actions absolute flex justify-between">
+        <button class="cancel-button" (click)="dialogService.closeDialog()">
+            CANCEL
+        </button>
+        <button class="ok-button">
+            OK
+        </button>
+    </div>
+</div>

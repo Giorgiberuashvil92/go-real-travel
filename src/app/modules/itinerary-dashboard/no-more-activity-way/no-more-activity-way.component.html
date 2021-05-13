@@ -1,0 +1,23 @@
+
+<div class="wrapper relative">
+    <img class="close-dialog-btn absolute cursor-pointer" src="/assets/close-dialog-icon.svg" alt="" (click)="dialogService.closeDialog()">
+    
+    <div class="sorry">
+        Sorry
+    </div>
+
+    <div class="not-have">
+        We do not have any {{ data.toursExist ? 'more' : '' }} suggested ways to add <span style="color: #D25C5C">{{ data.tour.attributes.name }}</span> to your trip.
+    </div>
+
+    <div class="actions absolute flex justify-between">
+        <button class="cancel-button" 
+            *ngIf="data.toursExist"
+            (click)="dialogService.closeDialog(); dialogService.openDialog('chooseNewActivity', data)">
+            Try Again
+        </button>
+        <button class="next-button" (click)="dialogService.closeDialog()">
+            OK
+        </button>
+    </div>
+</div>

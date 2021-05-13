@@ -1,0 +1,42 @@
+<div class="wrapper">
+    <div class="city">
+        {{ city.attributes.name }}
+    </div>
+
+    <div class="days-wrapper" *ngIf="daysArr">
+        <div class="days-inner-wrapper">
+            <div class="day-and-x"
+                *ngFor="let d of daysArr; let i=index"
+                [ngStyle]="{
+                    'margin-top': i >= 5 || (deviceDetectorService.isMobile && i >= 4) ? '16px' : '2px'
+                }">
+                <div class="day-wrapper"
+                    [ngClass]="{
+                        'day-wrapper__hasX': d.attributes.removable,
+                        'day-wrapper__fill--full': counter%2 === 0 && !d.attributes['half-day'],
+                        'day-wrapper__fill--half': d.attributes['half-day'],
+                        'day-wrapper__fill--clear': counter%2 === 1 && !d.attributes['half-day']
+                    }">
+
+                    <div class="day-text">DAY</div>
+                    <div class="num">{{ d.attributes.index }}</div>
+                    <div class="name-dd-month">{{ transformDate(d.attributes.date, daysDiff) | date }}</div>
+                    <div [class]="(counter%2 === 0 && i !== 0) || (counter%2 === 1 && i === 0) ? 'fill-top' : 'fill-bottom'" *ngIf="d.attributes['half-day']"></div>
+                </div>
+    
+                <div class="x-icon-wrapper" *ngIf="d.attributes.removable" (click)="onDelete(i)">
+                    <img src="/assets/location-day-x-icon.svg" alt="">
+                </div>
+            </div>
+            <div class="day-and-x" *ngFor="let item of [1,2,3]"></div>
+        </div>
+
+        <div class="add-day">
+            <div class="add-day-text">
+                Add Day
+            </div>
+
+            <img src="/assets/add-day-icon.svg" alt="" (click)="onAddDay()">
+        </div>
+    </div>
+</div>

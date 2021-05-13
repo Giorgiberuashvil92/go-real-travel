@@ -1,0 +1,11 @@
+div {
+    font-weight: 700;
+    font-size: 20px;
+    color: #C6C4D5;
+    transition: font-size .1s;
+}
+
+.is-active {
+    color: #02A388;
+    font-size: 30px;
+}

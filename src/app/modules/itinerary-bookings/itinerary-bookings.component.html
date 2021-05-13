@@ -1,0 +1,14 @@
+<div class="wrapper" *ngIf="itinerary && !itinerary.loading && itinerary.data">
+  <div class="location-wrapper flex justify-between items-center">
+      <app-location-paginator
+            class="block"
+            [leftMostIndex]="1"
+            [locationsToShow]="8"
+            [activeIndex]="1"
+            (locationChange)="onLocationChange($event)"
+        ></app-location-paginator>
+  </div>
+  <div class="line"></div>
+
+<app-booking-navigation></app-booking-navigation>
+

@@ -1,0 +1,56 @@
+<div class="location-details ">
+    <div class="location-names-horizontal">
+      <div class="trip-time">
+        {{ itineraryState.data.data.attributes['days-count'] }} Day Trip
+    </div>
+        <div
+            *ngFor="let l of itineraryService.generateCitiesArray(itineraryState.data); let i=index">
+            <div class="location-name-horizontal-name">
+                {{ l }}
+            </div>
+            <span class="location-name-horizontal-arrow" *ngIf="i !== itineraryService.generateCitiesArray(itineraryState.data).length - 1">&#8594;</span>
+        </div>
+    </div>
+
+</div>
+
+<div class="wrapper w-full flex justify-between overflow-hidden"
+            (touchstart)="onTouchStart($event)"
+            (touchmove)="onTouchMove($event)">
+    <img class="lower-than cursor-pointer" *ngIf="deviceDetectorService.isDesktop" (click)="onLeft()" src="/assets/lower-than-icon.svg">
+
+    <div class="locations-wrapper w-full flex justify-between overflow-calc" #wrapper>
+        <ng-container *ngFor="let d of dataToShow; let i=index">
+            <div class="location-wrapper flex flex-col items-center"
+                [ngStyle]="{
+                    'opacity': i + leftMostIndex === activeIndex ? '1' : '0.3',
+                    'transform': 'translateX(' + mobileTranslate + 'px)'
+                }"
+                (click)="changeIndex(i + leftMostIndex)">
+                <div class="first-data w-full text-center">
+                    {{ d['top-text'] }}
+                </div>
+                <div class="icon-data flex justify-center items-center" [ngClass]="{ 'icon-data__active': i + leftMostIndex === activeIndex }">
+                    <img [src]="'/assets/' + d.icon + '.svg'">
+                </div>
+                <div class="second-data w-full text-center" [ngClass]="{ 'second-data__active': i + leftMostIndex === activeIndex }">
+                    {{ d['bottom-text-bold'] }}
+                </div>
+                <div class="third-data w-full text-center">
+                    {{ d['bottom-text'] }}
+                </div>
+            </div>
+
+            <img
+                *ngIf="i !== dataToShow.length - 1"
+                [ngStyle]="{
+                    'transform': 'translateX(' + mobileTranslate + 'px)'
+                }"
+                class="block"
+                src="/assets/location-line-icon.svg"
+                alt=""
+            >
+        </ng-container>
+    </div>
+    <img class="higher-than cursor-pointer" *ngIf="deviceDetectorService.isDesktop" (click)="onRight()" src="/assets/higher-than-icon.svg">
+</div>

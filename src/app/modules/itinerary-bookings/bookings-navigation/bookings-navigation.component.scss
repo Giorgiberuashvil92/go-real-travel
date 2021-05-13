@@ -1,0 +1,166 @@
+.fl-x{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 1228px;
+  font-size: 14;
+
+}
+.fl-g{
+  min-width: 150px;
+  padding-left: 18px;
+}
+.image {
+  height: 90px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: 7px;
+}
+.right-line{
+  width: 1px;
+    height: 17px;
+    background-color: #02A388;
+    margin-left: 40px;
+}
+
+.fl-s{
+  // border: 2px solid #02A388;
+  // border-radius: 9px;
+  width: 100%;
+  font-size: 14px;
+  color: #02A388;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  // border-right: 1px solid #1A1538;
+  margin-right: 15px;
+  padding-left: 12px;
+  position: relative;
+
+  h1 {
+    white-space: nowrap;
+  }
+
+  .fl-s:last-child{
+    border: none;
+    width: 0px;
+  }
+
+  &:after:not(:last-child) {
+    content: "";
+    width: 1px;
+    height: 100%;
+    top: 0;
+    right: -25px;
+    background-color: #1A1538;
+    position: absolute;
+    z-index: 1;
+
+  }
+}
+
+.fl-l{
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+
+}
+
+.all-my-bookings {
+  background-color: #02A388;
+  color: #ffffff;
+}
+
+.nav-img{
+  margin-right: 10px;
+}
+
+.gm-p{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.my-2 .fl-s:first-child .gm-p{
+  border: 2px solid #7FD0C3;
+  padding: 3px 20px;
+  border-radius: 5px;
+}
+.my-3{
+  display: flex;
+  min-width: 180px;
+  max-width: 250px;
+  border: 2px solid #7FD0C3;
+  padding: 3px 20px;
+  border-radius: 5px;
+  background-color: #02A388;
+  img{
+    width: 24px;
+  }
+   div{
+     padding-left: 10px;
+      font-weight: 500;
+    color: white;
+   }
+}
+
+
+.gl-s:last-child{
+  border: none;
+}
+
+.bg-col{
+  width: 167px;
+  height: 120px;
+}
+
+.name {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  background-color: rgb(0 0 0 / 0.75);
+  text-align: center;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+@media only screen and (max-width: 768px) {
+.wrapper {
+  flex-direction: column;
+  .my-1{
+    display: flex;
+    overflow-x: scroll;
+    height: 50px;
+    justify-content: space-between;
+  }
+  .grid-col{
+    width: 150px;
+    height: 50px;
+    border-radius: 3px;
+    border: 2px solid white;
+    object-fit: cover;
+  }
+  .relative{
+    img{
+      width: 100%;
+      object-fit: cover;
+    };
+    .nav-img{
+      margin-right: 78px;
+    }
+  }
+}
+
+
+}
+
+@media only screen and (max-width: 1181px) {
+  .flex-column-rips{
+    flex-direction: column;
+  }
+  .flex-column-rips-second{
+    display: flex;
+  }
+  }

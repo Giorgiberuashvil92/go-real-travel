@@ -1,0 +1,58 @@
+<div class="flex flex-wrap -mx-2 overflow-hidden lg:-mx-3 xl:-mx-2">
+  <div class="my-2 px-2 w-1/5 overflow-hidden lg:my-3 lg:px-3 lg:w-1/5 xl:my-2 xl:px-2 xl:w-1/5 fl-x" *ngIf="!deviceDetectorService.isMobile">
+    <div class="fl-s flex gl-s" *ngFor="let item of array; let i = index"
+      (click)="itineraryService.bookingOptionIndex.next(i)">
+      <div class="fl-l gm-p cursor-pointer"
+        [ngStyle]="{
+          'font-weight': i === option ? 500 : 400,
+          'opacity': i === option ? 1 : 0.5
+        }"
+        [ngClass]="{
+          'all-my-bookings': i === 0 && itineraryService.bookingOptionIndex.value === 0
+        }">
+        <img [src]="i === 0 && itineraryService.bookingOptionIndex.value === 0 ? '/assets/book-white.svg' : item.imageURL" class="nav-img">
+        <h1>{{item.name}}</h1>
+      </div>
+
+      <div class="right-line" *ngIf="i !== array.length - 1"></div>
+    </div>
+
+  </div>
+  <div class="my-3" *ngIf="deviceDetectorService.isMobile" (click)="openDialog()">
+    <img src="/assets/book-second.svg" alt="" >
+    <div class="">All My Bookings</div>
+  </div>
+
+</div>
+
+<div class="wrapper flex flex-column-rips">
+  <div style="min-width: 200px" class="flex flex-wrap -mx-2 overflow-hidden sm:-mx-2 md:-mx-2 lg:-mx-2 xl:-mx-2 fl-g">
+    <div class="my-1 px-1 w-full overflow-hidden sm:my-1 sm:px-1 md:my-1 md:px-1 lg:my-1 lg:px-1 xl:my-1 xl:px-1 flex-column-rips-second">
+      <ng-container *ngIf="cityState && cityState.cities && cityState.cities.data">
+        <div class="gm-d cursor-pointer" *ngFor="let item of cityState.cities.data; let i=index"
+          [ngStyle]="{ 'opacity': activeCityIndex === i ? '1' : '0.5' }"
+          (click)="onCityClick(i)">
+          <div class="rounded-full h-16 w-16 flex items-center justify-center bg-col"
+          [ngClass]="{'grid-col': deviceDetectorService.isMobile}">
+            <div class="relative " style="width: 200px;">
+              <div class="image" [style.background-image]="'url(\'' + item.attributes['image-url'] + '\')'"></div>
+              <div class="absolute name">
+                {{item.attributes.name | uppercase}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+
+  <ng-container [ngSwitch]="itineraryService.bookingOptionIndex.value">
+
+    <app-my-bookings *ngSwitchCase="0" [city]="cityState.cities.data[activeCityIndex]"></app-my-bookings>
+    <app-city-cards *ngSwitchCase="1" [city]="cityState.cities.data[activeCityIndex]"></app-city-cards>
+    <app-tour-activities *ngSwitchCase="2" [city]="cityState.cities.data[activeCityIndex]"></app-tour-activities>
+    <app-inter-city *ngSwitchCase="3" [city]="cityState.cities.data[activeCityIndex]"></app-inter-city>
+    <!-- <app-tour-cards *ngSwitchCase="4"></app-tour-cards> -->
+  </ng-container>
+</div>
+

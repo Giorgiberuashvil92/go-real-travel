@@ -1,0 +1,18 @@
+<div class="wrapper" *ngIf="itineraryState && !itineraryState.deleteTourLoading; else elseBlock">
+    <div class="question">
+        Are you sure?
+    </div>
+
+    <div class="actions flex justify-between">
+        <button class="yes-button" (click)="onYes()">
+            YES
+        </button>
+        <button class="no-button" (click)="dialogService.closeDialog()">
+            NO
+        </button>
+    </div>
+</div>
+
+<ng-template #elseBlock>
+    <app-loader></app-loader>
+</ng-template>

@@ -1,0 +1,103 @@
+.wrapper {
+    width: 100%;
+    padding-top: 35px;
+    font-weight: 600;
+
+    .change-activity {
+        font-size: 22px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .current-icon{
+        position: absolute;
+        top: -10px;
+        right: -6px;
+    }
+
+    .activity-wrapper {
+        margin-bottom: 100px;
+
+        .activity {
+            border-width: 2px;
+            border-radius: 10px;
+            padding: 10px 15px;
+            margin: 10px auto;
+            border-color: #757575;
+            
+            &__active, &:hover {
+                border-color: #02A388;
+            }
+
+            .current {
+                top: 38px;
+                right: 5px;
+
+                .current-text {
+                    font-size: 13px;
+                    margin-right: 8px;
+                    opacity: .5;
+                }
+            }
+
+            .image {
+                width: 80px;
+                height: 80px;
+                background-repeat: no-repeat;
+                background-size: 40px;
+                background-position: center;
+                border-radius: 10px;
+                background-color: rgba(2, 163, 136, 0.8);
+            }
+
+            .detail-wrapper {
+                position: relative;
+                margin-left: 20px;
+
+                .title-self-guided {
+                    font-size: 16px;
+                    color: #757575;
+                }
+
+                .tags {
+                    margin-top: 20px;
+
+                    .tag {
+                        font-size: 8px;
+                        border-color: #02A388;
+                        color: #02A388;
+                        border-width: 1px;
+                        border-radius: 7px;
+                        padding: 5px 8px;
+                        font-weight: 700;
+                        margin-right: 8px;
+                    }
+                }
+            }
+        }
+    }
+
+    .actions {
+        bottom: -100px;
+        width: 100%;
+        padding: 0 28%;
+    
+        button {
+            font-size: 17px;
+            width: 138px;
+            height: 50px;
+            border-radius: 10px;
+        }
+        
+        .cancel-button {
+            border-color: #02A388;
+            border-width: 3px;
+            color: #02A388;
+        }
+    
+        .ok-button {
+            color: #fff;
+            background-color: #02A388;
+        }
+    }
+}

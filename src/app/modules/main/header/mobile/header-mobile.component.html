@@ -1,0 +1,20 @@
+
+<div class="wrapper">
+  <div class="top-side">
+    <img src="/assets/go-real-travel-icon.svg" alt="">
+    <img src="/assets/hamburger.svg" alt="" (click)="hideMobileHeader.emit()">
+  </div>
+
+  <div class="user">
+    <div class="green-wrapper">
+      <img src="/assets/user-icon.svg" alt="">
+    </div>
+    <div class="username">Username22138</div>
+  </div>
+
+  <div class="pages-wrapper">
+    <div class="page" *ngFor="let p of pages" [ngClass]="{ 'page__active': router.url === p.url }">
+      {{ p.name }}
+    </div>
+  </div>
+</div>

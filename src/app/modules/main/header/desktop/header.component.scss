@@ -1,0 +1,319 @@
+.wrapper {
+  position: relative;
+  width: 100%;
+  background-color: #fff;
+  // padding: 15px 35px 15px 15px;
+  color: #1B1B1B;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+
+  >img {
+    margin: 15px 0px 15px 15px;
+  }
+
+  .pages-wrapper {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 15px;
+    font-weight: 500;
+    width: 50%;
+    height: 70px;
+    max-width: 580px;
+    margin: 0px 165px 0px 0px;
+    
+    .page {
+      cursor: pointer;
+
+      &__active {
+        color: #02A388;
+      }
+
+      &:hover {
+        color: #02A388;
+      }
+    }
+
+
+    .manage-trip {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      height: 100%;
+
+      &__active {
+        overflow: visible;
+      }
+
+      .manage-trip-menu {
+        -webkit-box-shadow: 0px 6px 20px -10px rgba(0,0,0,0.62);
+        -moz-box-shadow: 0px 6px 20px -10px rgba(0,0,0,0.62);
+        box-shadow: 0px 6px 20px -10px rgba(0,0,0,0.62);
+        z-index: -1;
+        position: absolute;
+        background-color: #FFFFFF;
+        width: 265px;
+        height: 225px;
+        top: 0;
+        opacity: 0;
+        left: -20%;
+        border-radius: 8px;
+        border-width: 1px;
+        border-color: #DCDBE0;
+        flex-flow: column;
+        align-items: center;
+        justify-content: space-around;
+        display: none;
+        transform: translate(-27%, 0px);
+        padding: 25px 0px;
+        
+        &__active {
+          animation-name: manageTripDropdown;
+          animation-duration: .5s;
+          top: 100%;
+          display: flex;
+          opacity: 1;
+        }
+
+        .manage-trip-item {
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+          opacity: 0.5;
+
+          img {
+
+          }
+
+          .title {
+            font-size: 14px;
+            font-weight: 400;
+            color: #02A388;
+            margin-left: 5px;
+          }
+
+          &:hover, &__active {
+            opacity: 1;
+            
+            .title {
+              font-weight: 600;
+            }
+          }
+        }
+
+        .horizontal-line {
+          width: 90%;
+          height: 1px;
+          background-color: #DCDBE0;
+        }
+      }
+    }
+
+    .balance {
+      position: relative;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      
+      >span {
+        cursor: pointer;
+      }
+
+      &:hover {
+        >span {
+          color: #02A388;
+        }
+      }
+
+      &__active {
+        overflow: visible;
+      }
+
+      .balance-menu {
+        -webkit-box-shadow: 0px 6px 20px -10px rgba(0,0,0,0.62);
+        -moz-box-shadow: 0px 6px 20px -10px rgba(0,0,0,0.62);
+        box-shadow: 0px 6px 20px -10px rgba(0,0,0,0.62);
+        z-index: -1;
+        position: absolute;
+        background-color: #FFFFFF;
+        width: 90px;
+        height: 180px;
+        top: 0;
+        opacity: 0;
+        left: -0%;
+        border-radius: 8px;
+        border-width: 1px;
+        border-color: #DCDBE0;
+        flex-flow: column;
+        align-items: center;
+        justify-content: space-around;
+        display: none;
+        transform: translate(-27%, 0px);
+        padding: 25px 0px;
+        
+        &__active {
+          animation-name: balanceDropdown;
+          animation-duration: .5s;
+          top: 100%;
+          display: flex;
+          opacity: 1;
+        }
+
+        >div {
+          cursor: pointer;
+
+          &:hover {
+            color: #02A388;
+          }
+        }
+      }
+    }
+
+    .user {
+      position: absolute;
+      display: flex;
+      flex-flow: column;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 600;
+      height: 100%;
+      right: 50px;
+      overflow: hidden;
+
+      &__active {
+        overflow: visible;
+      }
+  
+      .green-wrapper {
+        width: 35px;
+        height: 35px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-color: #02A388;
+        border-radius: 50%;
+        border-width: 1px;
+        margin-right: 5px;
+      }
+
+      .triangle {
+        z-index: -2;
+        position: absolute;
+        background-color: #cccccc;
+        width: 9px;
+        height: 9px;
+        bottom: -5px;
+        transform: rotate(45deg);
+      }
+
+      .user-menu {
+        z-index: -1;
+        position: absolute;
+        height: 120px;
+        background-color: #cccccc;
+        width: 140%;
+        top: 0;
+        opacity: 0;
+        left: -20%;
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
+        padding: 10px;
+        flex-flow: column;
+        align-items: center;
+        justify-content: space-around;
+        display: none;
+        
+        &__active {
+          animation-name: userDropdown;
+          animation-duration: .5s;
+          top: 100%;
+          display: flex;
+          opacity: 1;
+        }
+
+        .name {
+          color: rgba(0,0,0,0.5);
+          width: 50%;
+          text-align: center;
+        }
+
+        .edit-profile, .log-out {
+          cursor: pointer;
+          background-color: #02A388;
+          border-radius: 18px;
+          color: #fff;
+          width: 80px; 
+          height: 25px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+
+    }
+    
+    .settings {
+      img {
+        width: 18px;
+      }
+    }
+    
+    .vertical-line {
+      width: 1px;
+      height: 24px;
+      background-color: #000000;
+    }
+  }
+}
+
+@keyframes userDropdown {
+  0% { 
+    top: 0px;
+    opacity: 0;
+  }
+  60% {
+    top: calc(100% + 10px);
+    opacity: 0.9;
+  }
+  100% {
+    top: 100%;
+    opacity: 1;
+  }
+}
+
+@keyframes manageTripDropdown {
+  0% { 
+    top: 0px;
+    opacity: 0;
+  }
+  60% {
+    top: calc(100% + 10px);
+    opacity: 0.9;
+  }
+  100% {
+    top: 100%;
+    opacity: 1;
+  }
+}
+
+@keyframes balanceDropdown {
+  0% { 
+    top: 0px;
+    opacity: 0;
+  }
+  60% {
+    top: calc(100% + 10px);
+    opacity: 0.9;
+  }
+  100% {
+    top: 100%;
+    opacity: 1;
+  }
+}

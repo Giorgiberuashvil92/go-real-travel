@@ -1,0 +1,69 @@
+<ng-container *ngIf="affiliateState">
+  <div class="wrapper wr-p pd-rg" *ngIf="!affiliateState.partnerActivitiesLoading && affiliateState.partnerActivities && affiliateState.partnerActivities.data.length > 0">
+    <div class="rel">
+      <h1>Book a related experience:</h1>
+    </div>
+
+    <div class="col-sc">
+      <img class="lower-than cursor-pointer" *ngIf="deviceDetectorService.isMobile" (click)="onLeft()" src="/assets/lower-than-icon.svg">
+      <div class="col" *ngFor="let item of dataToShow; let i=index"
+        (click)="affiliateService.onRedirect(item)">
+        <div class="ph-t-2">
+          <!-- <div [src]="item.attributes['image-url']" alt="" class="photo-flex"> -->
+            <div class="photo-flex" [style.background-image]="'url(\'' + item.attributes['image-url'] + '\')'"></div>
+        </div>
+        <div class="tx-t">
+          <div class="wr-2 wr-c text-slice"><h2>{{ item.attributes['title'] }}</h2></div>
+          <div class="wr-2 text-slice"><p>{{ item.attributes['description'] }}</p></div>
+        </div>
+
+        <div class="thrd-2">
+            <div class="pdr-r" *ngIf="item.attributes.duration">
+              <img src="/assets/clock.svg" alt="">
+              <div class="flex flex-column">
+                <span class="spn-d">Duration</span>
+                <span class="spn-col text-center" style="width: 60px">
+                  <ng-container *ngFor="let k of keysOfDuration[i]">
+                    <ng-container *ngIf="k === 'hours'">{{item.attributes.duration[k]}}h </ng-container>
+                    <ng-container *ngIf="k === 'minutes'">{{item.attributes.duration[k]}}m</ng-container>
+                  </ng-container>
+                </span>
+              </div>
+            </div>
+            <div class="pdr-r">
+              <img src="/assets/dollar.svg" alt="">
+              <div class="flex flex-column" style="margin-left: 3px">
+                <span class="spn-d">Price</span>
+                <span class="spn-col">
+                  {{ item.attributes['price'] | currency : item.attributes.currency }}~
+                </span>
+              </div>
+            </div>
+            <div class="pdr-r">
+              <img *ngIf="true" src="/assets/exit.svg" alt="">
+              <img *ngIf="false" src="/assets/tick.svg" alt="">
+              <div class="booked flex flex-column" style="margin-left: 7px">
+                <span class="spn-d">Booked</span>
+                <span class="spn-col">NO</span>
+              </div>
+            </div>
+        </div>
+      </div>
+      <img class="arrow-right cursor-pointer" *ngIf="deviceDetectorService.isMobile" (click)="onRight()" src="/assets/higher-than-icon.svg">
+    </div>
+  </div>
+
+  <div class="wrapper wr-p pd-rg" *ngIf="!affiliateState.partnerTransportsLoading && affiliateState.partnerTransports && affiliateState.partnerTransports.data && affiliateState.partnerTransports.data.length > 0">
+    <ng-container *ngFor="let i of affiliateState.partnerTransports.data">
+      <div class="rel">
+        <h1>{{ i.attributes.title }}</h1>
+      </div>
+
+      <div class="col-sc">
+        <app-partner-transport *ngFor="let item of i.attributes.transportations" [item]="item"></app-partner-transport>
+      </div>
+    </ng-container>
+  </div>
+</ng-container>
+
+

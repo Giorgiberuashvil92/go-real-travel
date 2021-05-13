@@ -1,0 +1,99 @@
+<mat-dialog-content *ngIf="{ cityState: cityState$ | async, interestState: interestState$ | async } as cityInterest">
+    <div class="wrapper relative">
+        <img class="close-dialog-btn absolute cursor-pointer" src="/assets/close-dialog-icon.svg" alt="" (click)="dialogService.closeDialog()">
+        
+        <div class="select-activity">
+            Select the activity:
+        </div>
+    
+        <div class="form-wrapper">
+    
+            <div class="text-field flex justify-around align-center">
+                <img class="cursor-pointer" src="/assets/search-icon.svg" alt="">
+                <input type="text" [(ngModel)]="activityInput" (input)="onInput($event)">
+            </div>
+    
+            <div class="select-city">
+                Select city or cities:
+            </div>
+    
+            <ng-container *ngIf="cityInterest.cityState as cityState">
+                <div class="cities-wrapper flex flex-wrap" *ngIf="!cityState.loading">
+                    <div class="city cursor-pointer" *ngFor="let c of filterCities(cityState.cities.data)" (click)="toggleCity(c)" [ngClass]="{ 'city__active': citySet.has(c)}">
+                        {{ c.attributes['name'] }}
+                    </div>
+                </div>
+            </ng-container>
+    
+            <div class="interested-in">
+                You are interested in...
+            </div>
+    
+            <ng-container *ngIf="cityInterest.interestState as interestState">
+                <div class="interests-wrapper flex flex-wrap" *ngIf="!interestState.loading">
+                    <div class="interest cursor-pointer" *ngFor="let i of filterInterests(interestState.interests.data)" (click)="toggleInterest(i)" [ngClass]="{ 'interest__active': interestSet.has(i)}">
+                        {{ i.attributes['name'] }}
+                    </div>
+                </div>
+            </ng-container>
+    
+            <ng-container *ngIf="itinerary.toursSearchLoading">
+                <div class="line"></div>
+        
+                <div class="searching-for-activities text-center">
+                    Searching for activities for you...
+                </div>
+            </ng-container>
+            
+            <ng-container *ngIf="!itinerary.toursSearchLoading && toursToShow.length === 0">
+                <div class="line"></div>
+                
+                <div class="no-results text-center">
+                    We're sorry, there were no results found. Please adjust your search and try again.
+                </div>
+            </ng-container>
+    
+            <ng-container *ngIf="!itinerary.toursSearchLoading && toursToShow.length > 0">
+                <div class="recommended-for">
+                    Recommended for <span class="recommended-for-value">{{ recommendedFor || 'Everything' }}</span>
+                </div>
+        
+                <div class="activity-wrapper flex justify-between flex-wrap">
+                    <div class="activity relative flex cursor-pointer" 
+                        *ngFor="let r of toursToShow; let i=index" 
+                        [ngClass]="{ 'activity__active': i === currentlyChosenIndex}"
+                        (click)="currentlyChosenIndex = i">
+                        
+                        <div class="current absolute flex items-center" *ngIf="i === currentlyChosenIndex">    
+                            <div class="current-icon">
+                                <img src="/assets/tick-circle-icon.svg" alt="">
+                            </div>
+                        </div>
+                        
+                        <div class="image" [style.background-image]="'url(\'' + r.attributes['square-image-url'] + '\')'"></div>
+            
+                        <div class="detail-wrapper">
+                            <div class="city-detail">
+                                {{ findCity(cityInterest.cityState.cities.data, r.relationships.city.data.id) }}
+                            </div>
+    
+                            <div class="title-self-guided">
+                                {{ r.attributes.name }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+    
+        </div>
+    
+        <div class="actions absolute flex justify-between">
+            <button class="cancel-button" (click)="dialogService.closeDialog()">
+                CANCEL
+            </button>
+            <button class="next-button" (click)="onNext()" [disabled]="currentlyChosenIndex < 0">
+                NEXT
+            </button>
+        </div>
+    </div>
+</mat-dialog-content>

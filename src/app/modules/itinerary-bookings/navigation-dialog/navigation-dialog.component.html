@@ -1,0 +1,11 @@
+
+<div class="fl-s flex gl-s" *ngFor="let item of array; let i = index" (click)="option = i" >
+  <div class="fl-l gm-p cursor-pointer"
+  [ngStyle]="{
+    'font-weight': i === option ? 700 : 400,
+    'opacity': i === option ? 1 : 0.5
+  }">
+    <img [src]="item.imageURL" class="nav-img">
+    <h1>{{item.name}}</h1>
+  </div>
+</div>

@@ -1,0 +1,61 @@
+<ng-container *ngIf="itineraryState && !updateItineraryLoading; else loaderBlock">
+    <ng-container *ngIf="itineraryState && !itineraryState.loading && itineraryState.data">
+        <div class="wrapper relative" [ngStyle]="{
+            'height': itineraryState.updateItineraryError ? '750px' : '640px'
+        }">
+            <img class="close-dialog-btn absolute cursor-pointer" src="/assets/close-dialog-icon.svg" alt="" (click)="dialogService.closeDialog()">
+            
+            <div class="arrive-day-question">
+                What day do you want to arrive ?
+            </div>
+        
+            <div class="arrive-day-text">
+                Remember, this is the day you ARRIVE in {{ itineraryState.data.data.attributes.continent | titlecase }}.
+                Most intercontinental flights will depart one day BEFORE arrival in {{ itineraryState.data.data.attributes.continent | titlecase }}!
+            </div>
+        
+            <div class="calendars-wrapper">
+                <div class="from">
+                    <div class="title">FROM:</div>
+                    <app-datepicker [date]="startDateString" [isEditable]="true" (dateChange)="onFromDateChange($event)"></app-datepicker>
+                </div>
+        
+                <div class="to">
+                    <div class="title">TO:</div>
+                    <app-datepicker [date]="endDateString" [isEditable]="false"></app-datepicker>
+                </div>
+            </div>
+                
+            <div class="least-days-error" *ngIf="itineraryState.updateItineraryError">
+                <img src="/assets/warning-icon.svg" alt="">
+                <div class="text">
+                    <!-- Sorry, for the cities you are visiting, you need at least
+                    <div class="days">
+                        9 days.
+                    </div> -->
+                    {{ itineraryState.updateItineraryError.error.errors[0].title }}
+                </div>
+            </div>
+            
+            <div class="days-wrapper">
+                <ng-container *ngFor="let gd of itineraryState.data.data.relationships['grouped-days'].data; let i=index">
+                    <div class="spacing" *ngIf="i !== 0"></div>
+                    <app-location-days [data]="gd" [counter]="i" [daysDiff]="daysDiff"></app-location-days>
+                </ng-container>
+            </div>
+        
+            <div class="absolute actions flex justify-between">
+                <button class="cancel-button" (click)="dialogService.closeDialog()">
+                    CANCEL
+                </button>
+                <button class="ok-button" (click)="onOK()">
+                    OK
+                </button>
+            </div>
+        </div>
+    </ng-container>
+</ng-container>
+
+<ng-template #loaderBlock>
+    <app-loader></app-loader>
+</ng-template>

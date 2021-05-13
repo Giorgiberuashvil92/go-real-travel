@@ -1,0 +1,71 @@
+<ng-container *ngIf="itineraryState">
+    <div class="wrapper relative" *ngIf="!isSubmitted; else elseBlock">
+        <img class="close-dialog-btn absolute cursor-pointer" src="/assets/close-dialog-icon.svg" alt="" (click)="dialogService.closeDialog()">
+        
+        <div class="replace-day">
+            Do you want to replace day with new activity?
+        </div>
+    
+        
+        <div class="current-new flex justify-between">
+            <div class="activity-wrapper">
+                <div class="current">
+                    Current - Day {{ itineraryState.dayIndex }}
+                </div>
+    
+                <div class="activity relative flex cursor-pointer" 
+                    *ngFor="let oldTour of data.attributes['old-day-tours'].data; let i=index">
+                    
+                    <div class="image" [style.background-image]="'url(\'' + oldTour.attributes['square-image-url'] + '\')'"
+                        [ngClass]="{ 'image__transport' : oldTour.attributes['square-image-url'].includes('transport-icons') }"></div>
+        
+                    <div class="detail-wrapper">
+                        <div class="city-detail">
+                            {{ itineraryService.findCityById(itineraryState, oldTour.relationships.city.data.id).attributes.name }}
+                        </div>
+        
+                        <div class="city-detail">
+                            {{ oldTour.attributes['name'] }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="activity-wrapper">
+                <div class="new">
+                    New
+                </div>
+    
+                <div class="activity relative flex cursor-pointer" 
+                    *ngFor="let newTour of data.attributes['new-day-tours'].data; let i=index">
+                    
+                    <div class="image" [style.background-image]="'url(\'' + newTour.attributes['square-image-url'] + '\')'"
+                        [ngClass]="{ 'image__transport' : newTour.attributes['square-image-url'].includes('transport-icons') }"></div>
+        
+                    <div class="detail-wrapper">
+                        <div class="city-detail">
+                            {{ itineraryService.findCityById(itineraryState, newTour.relationships.city.data.id).attributes.name }}
+                        </div>
+        
+                        <div class="city-detail">
+                            {{ newTour.attributes['name'] }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="actions absolute flex justify-between">
+            <button class="cancel-button" (click)="dialogService.closeDialog()">
+                CANCEL
+            </button>
+            <button class="next-button" (click)="onOK(itineraryState)">
+                OK
+            </button>
+        </div>
+    </div>
+
+    <ng-template #elseBlock>
+        <app-loader></app-loader>
+    </ng-template>
+</ng-container>

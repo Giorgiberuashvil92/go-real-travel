@@ -1,0 +1,149 @@
+.wrapper {
+    width: 100%;
+    padding-top: 35px;
+    font-weight: 600;
+
+    .select-activity {
+        font-size: 22px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .form-wrapper {
+
+        .text-field {
+            margin: 10px 0px 15px 0px;
+            width: 100%;
+            height: 20px;
+            border-width: 1px;
+            border-color: #02A388;
+            border-radius: 6px;
+
+            input {
+                width: 95%;
+            }
+        }
+
+        .select-city, .interested-in, .recommended-for {
+            font-size: 20px;
+        }
+
+        .recommended-for-value {
+            color: #02A388;
+        }
+
+        .cities-wrapper, .interests-wrapper {
+            margin-top: 10px;
+        }
+
+        .city, .interest {
+            user-select: none;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 3px 6px;
+            border-width: 1px;
+            border-color: #02A388;
+            border-radius: 7px;
+            color: #02A388;
+            margin: 0px 10px 4px 0px;
+
+            &__active {
+                background-color: #02A388;
+                color: #fff;
+            }
+        }
+
+        .line {
+            background-color: #757575;
+            height: 1px;
+            width: 97%;
+            margin: 5px auto;
+        }
+
+        .searching-for-activities {
+            font-weight: 400;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+
+        .no-results {
+            font-weight: 400;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+
+        .activity-wrapper {
+            margin-bottom: 100px;
+            font-weight: 700;
+
+            .activity {
+                padding: 4px;
+                border-radius: 10px;
+                border-width: 1px;
+                border-color: rgba(0,0,0,0);
+                margin: 10px 0px;
+                width: 32%;
+
+                &__active {
+                    border-color: #02A388;
+                }
+
+                .current {
+                    top: 5px;
+                    right: 5px;
+                }
+
+                .image {
+                    width: 80px;
+                    height: 80px;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-position: center;
+                    border-radius: 10px;
+                }
+
+                .detail-wrapper {
+                    position: relative;
+                    margin-left: 20px;
+                    max-width: calc(100% - 100px);
+
+                    .city-detail {
+                        color: #868B9B;
+                        font-size: 12px;
+                        font-weight: 600;
+                    }
+
+                    .title-self-guided {
+                        font-size: 16px;
+                        color: #02A388;
+                    }
+                }
+            }
+        }
+    }
+
+
+    .actions {
+        bottom: -100px;
+        width: 100%;
+        padding: 0 30%;
+
+        button {
+            font-size: 17px;
+            width: 138px;
+            height: 50px;
+            border-radius: 10px;
+        }
+
+        .cancel-button {
+            border-color: #02A388;
+            border-width: 3px;
+            color: #02A388;
+        }
+
+        .next-button {
+            color: #fff;
+            background-color: #02A388;
+        }
+    }
+}

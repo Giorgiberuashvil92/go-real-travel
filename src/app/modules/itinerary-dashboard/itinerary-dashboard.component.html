@@ -1,0 +1,117 @@
+<div class="wrapper" *ngIf="itinerary && !itinerary.loading && itinerary.data">
+    <div class="location-wrapper">
+        <app-location-paginator
+            class="block"
+            [leftMostIndex]="1"
+            [locationsToShow]="8"
+            [activeIndex]="1"
+            (locationChange)="onLocationChange($event)"
+        ></app-location-paginator>
+    </div>
+    <div class="line"></div>
+
+    <div class="details-wrapper flex ">
+        <div class="left-side">
+            <div class="day">
+                DAY:
+            </div>
+
+            <app-paginator
+                *ngIf="deviceDetectorService.width < 1500"
+                class="block"
+                [currentPage]="itinerary.dayIndex"
+                [leftMostPage]="1"
+                [pagesAmount]="itinerary.data.data.relationships.days.data.length"
+                [pagesToShow]="10"
+                (page)="onDayChange($event)"
+            ></app-paginator>
+
+            <app-paginator
+                *ngIf="deviceDetectorService.width >= 1500"
+                class="block"
+                [currentPage]="itinerary.dayIndex"
+                [leftMostPage]="1"
+                [pagesAmount]="itinerary.data.data.relationships.days.data.length"
+                [pagesToShow]="15"
+                (page)="onDayChange($event)"
+            ></app-paginator>
+
+            <div class="gt-n">
+                <div class="edit-add">
+                <button (click)="dialogService.openDialog('arriveDay')" class="outline-none">EDIT TRIP</button>
+                <button (click)="dialogService.openDialog('selectActivity')" class="outline-none">+ ADD ACTIVITY</button>
+            </div>
+
+            <div class="tl-wr">
+                <div class="location">
+                {{ location }}
+            </div>
+            <div class="date">
+                {{ day.attributes.date | date }}
+            </div>
+            </div>
+            </div>
+
+
+            <div class="left-list-wrapper">
+                <img class="lower-than cursor-pointer" *ngIf="deviceDetectorService.isMobile" (click)="onLeft()" src="/assets/lower-than-icon.svg">
+                <div class="left-item flex cursor-pointer">
+                  <div class="flex flex-padding left-inner-item"
+                    *ngFor="let tour of tours; let i=index"
+                    [ngClass]="{ 'left-inner-item__active': i === itinerary.tourIndex }"
+                    [ngStyle]="{
+                        'transform': deviceDetectorService.isMobile ? 'translateX(' + (itinerary.tourIndex * (-300)) + 'px)' : ''
+                    }"
+                    (click)="onTourChange(i, tour)">
+                    <div class="image"
+                    [style.background-image]="'url(\'' + tour.attributes['square-image-url'] + '\')'"
+                    [ngClass]="{ 'transport-background': !!tour.attributes['transport-type'] }"></div>
+
+                    <div class="detail-wrapper">
+                        <div class="title">
+                            {{ tour.attributes.name }}
+                        </div>
+
+                        <div class="time-interval">
+                            {{ tour.attributes.schedule }}
+                        </div>
+                        <div class="actions flex">
+                            <button class="change-button flex justify-between items-center "
+                                [disabled]="i != itinerary.tourIndex"
+                                *ngIf="!tour.attributes.transportation || (tour.attributes.transportation && tour.attributes['has-alternative'])"
+                                (click)="onChange(tour)">
+                                <img src="/assets/change-icon.svg" alt="">
+                                <div>
+                                    CHANGE
+                                </div>
+                            </button>
+                            <button class="remove-button flex justify-between items-center"
+                                *ngIf="tour.attributes.removable && i === itinerary.tourIndex"
+                                (click)="onDeleteTour(tour.id)">
+                                <img src="/assets/remove-icon.svg" alt="">
+                                <div>
+                                    REMOVE
+                                </div>
+                            </button>
+                            <button class="remove-button flex justify-between items-center"
+                                *ngIf="deviceDetectorService.isMobile && (i !== itinerary.tourIndex || !tour.attributes.removable)">
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <img class="higher-than cursor-pointer" *ngIf="deviceDetectorService.isMobile" (click)="onRight()" src="/assets/higher-than-icon.svg">
+            </div>
+        </div>
+        <div class="right-side pd-lf">
+            <app-location-detail [data]="locationDetailData" (indexChange)="onLocationDetailIndexchange($event)"></app-location-detail>
+        </div>
+    </div>
+    <!-- <div class="pd-rg">
+        <app-check-experience></app-check-experience>
+    </div> -->
+    <div class="line2"></div>
+    <div class="pr-g " style="height: 200px;">
+        <app-detail-itirenary></app-detail-itirenary>
+    </div>
+</div>

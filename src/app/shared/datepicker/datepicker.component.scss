@@ -1,0 +1,26 @@
+.wrapper {
+    position: relative;
+    width: 150px;
+    padding: 13px; 
+    display: flex;
+    justify-content: space-between;
+    font-weight: 400;
+    font-size: 14px;
+    color: #A4A2B0;
+    border-radius: 7px;
+    box-shadow: 0px 0px 20px 3px rgba(0,0,0,0.10);
+    user-select: none;
+
+    .numbers {
+        &__editable {
+            color: #000000;
+        }
+    }
+
+    mat-form-field {
+        position: absolute;
+        left: 0px;
+        bottom: 0px;
+        display: none;
+    }
+}

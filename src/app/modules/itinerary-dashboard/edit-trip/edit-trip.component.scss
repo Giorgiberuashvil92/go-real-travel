@@ -1,0 +1,108 @@
+.wrapper {
+    width: 100%;
+    padding-top: 35px;
+    font-weight: 700;
+
+    .replace-day {
+        font-size: 22px;
+        width: 100%;
+        text-align: center;
+
+        .replace-day-number {
+            color: #02A388;
+        }
+    }
+
+    .current-new {
+        width: 84%;
+        margin: 40px 25px 40px auto;
+        margin-bottom: 100px;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        max-height: 60vh;
+        padding-right: 15px;
+
+        .activity-wrapper {
+            font-weight: 700;
+            width: 40%;
+
+            .current, .new {
+                margin-left: 8px;
+            }
+    
+            .activity {
+                padding: 4px;
+                border-radius: 10px;
+                margin: 10px 0px;
+                border-width: 1px;
+                border-color: rgba(0,0,0,0);
+                width: 110%;
+                
+                &__active {
+                    border-color: #02A388;
+                }
+    
+                .current {
+                    top: 5px;
+                    right: 5px;
+                }
+    
+                .image {
+                    width: 80px;
+                    height: 80px;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-position: center;
+                    border-radius: 10px;
+
+                    &__transport {
+                        background-color: #02A388;
+                        background-size: 40px;
+                    }
+                }
+    
+                .detail-wrapper {
+                    position: relative;
+                    margin-left: 20px;
+                    max-width: 130px;
+    
+                    .city-detail {
+                        color: #868B9B;
+                        font-size: 12px;
+                        font-weight: 600;
+                    }
+    
+                    .title-self-guided {
+                        font-size: 16px;
+                        color: #02A388;
+                    }
+                }
+            }
+        }
+    }
+
+
+    .actions {
+        bottom: -100px;
+        width: 100%;
+        padding: 0 30%;
+    
+        button {
+            font-size: 17px;
+            width: 138px;
+            height: 50px;
+            border-radius: 10px;
+        }
+        
+        .cancel-button {
+            border-color: #02A388;
+            border-width: 3px;
+            color: #02A388;
+        }
+    
+        .next-button {
+            color: #fff;
+            background-color: #02A388;
+        }
+    }
+}

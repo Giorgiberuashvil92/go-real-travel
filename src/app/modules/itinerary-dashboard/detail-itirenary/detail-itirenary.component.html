@@ -1,0 +1,18 @@
+<div class="wrapper">
+  <div class="btn-btn-c">
+    <button class="bg-gray-300 hover:bg-gray-400 btn-c text-white font-bold py-2 px-4 rounded inline-flex items-center rounded-full">
+      Save Itinerary
+    </button>
+  </div>
+
+  <div class="inline-btn">
+    <a class="dwn-l flex justify-between align-center"
+      [href]="itineraryState.data.data.attributes['summary-pdf-url']" target="_blank">
+        <img src="/assets/download-icon.svg" alt="alt">
+        <div>DOWNLOAD</div>
+    </a>
+    <!-- <div class="share-icon">
+      <img src="/assets/share.svg" alt="alt">
+    </div> -->
+  </div>
+</div>

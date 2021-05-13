@@ -1,0 +1,36 @@
+<div class="wrapper flex" >
+  <div class="flex flex-wrap -mx-2 overflow-hidden sm:-mx-2 md:-mx-2 lg:-mx-2 xl:-mx-2">
+    <div class="my-1 px-1 w-full overflow-hidden sm:my-1 sm:px-1 md:my-1 md:px-1 lg:my-1 lg:px-1 xl:my-1 xl:px-1">
+
+    </div>
+
+  </div>
+  <div class="pd-r">
+    <h1 class="h-bf">Tour Activities</h1>
+    <div class="sv-div">
+      <div class="frst-sv">
+        <div class="sav-inf shadow-lg">
+        <img src="../../../../assets/diskete.svg" alt="work">
+      </div>
+      <div class="pd-c"><p>Save a Booking what <br>You have Made</p></div>
+    </div>
+   <div class="cicle" *ngFor="let item of musseum" >
+    <div class="scnd-sv shadow-xl" >
+      <div class="nck-nm">{{item.nickname}}</div>
+      <div class="cl"><img [src]='item.Image' alt="itemWorking"></div>
+      <div class="cl-2"><p>{{item.name}}</p></div>
+      <div class="cl-3"><p>{{item.description}}</p></div>
+      <div class="cl-4"><img [src]="item.secImg" alt="img"><p>{{item.date}}</p></div>
+      <div class="cl-5"><img [src]="item.thirdImg" alt="img"><p>{{item.N}}</p></div>
+      <div class="cl-6"><img [src]="item.fourImg" alt="img"><p>{{item.numb}}</p></div>
+      <div class="cl-6 relative"><img [src]="item.fourImg" alt="img"><p>Booked</p>
+        <div class="absolute pd-f">
+          <img src="/assets/pdg.svg" alt="">
+        </div>
+      </div>
+
+     </div>
+   </div>
+    </div>
+  </div>
+</div>

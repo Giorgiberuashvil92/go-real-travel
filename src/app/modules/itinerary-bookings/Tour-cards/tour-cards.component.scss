@@ -1,0 +1,141 @@
+.bg-col{
+  width: 120px;
+  height: 120px;
+}
+.tx-c{
+  color: red;
+}
+.btm{
+  bottom: 32px;
+  right:25px;
+  color:white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.h-bf{
+  font-size: 30px;
+  font-weight: bold;
+  color: #02A388;
+}
+.pd-r{
+padding-left: 12%;
+width: 100%;
+margin-top: 3%;
+margin-bottom: 5%;
+}
+
+.sav-inf{
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  width: 140px;
+  height: 140px;
+  border-bottom: 1px solid whitesmoke;
+}
+.pd-c{
+  color: #02A388;
+  font-size: 13px;
+}
+.sv-div{
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.scnd-sv{
+  background-color: white;
+  width: 199px;
+  height: 295px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid #DC8383;
+  border-radius: 6px;
+position: relative;
+padding: 10px;
+    .nck-nm {
+
+      position: absolute;
+      top: 0;
+      width: 100px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 0 0 5px 5px;
+      background-color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px 10px;
+      box-shadow: 0 5px 5px rgba(0,0,0,0.7);
+    }
+}
+.frst-sv{
+  margin-top: 50px;
+}
+.cicle{
+  &:first-child {
+    border:none
+  }
+}
+.cl{
+  width: 180px;
+  height: 100;
+  object-fit: contain;
+}
+.cl-2{
+  font-size: 14px;
+  font-weight: bold;
+  color: #02A388;
+}
+
+.cl-3{
+  font-size: 11px;
+  color: #767388;
+}
+
+.cl-4 p{
+  font-size: 10px;
+  color: #767388;
+}
+.cl-4{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 85px;
+  justify-content: space-evenly;
+}
+.cl-5{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 40px;
+  justify-content: space-evenly;
+}
+
+.cl-5 p{
+  font-size: 10px;
+  color: #767388;
+}
+.cl-6{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 80px;
+  justify-content: space-evenly;
+}
+
+.cl-6 p{
+  font-size: 10px;
+  color: #767388;
+}
+
+.cicle{
+  display: flex;
+  justify-content: space-between;
+  padding-left: 5%;
+}
+
+.pd-f{
+right: -100px;
+margin-bottom: 20px;
+}

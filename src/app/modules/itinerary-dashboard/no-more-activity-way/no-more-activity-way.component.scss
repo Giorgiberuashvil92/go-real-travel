@@ -1,0 +1,44 @@
+.wrapper {
+    width: 100%;
+    padding-top: 35px;
+    
+    .sorry {
+        font-weight: 600;
+        font-size: 22px;
+        width: 100%;
+        text-align: center;
+        color: #D25C5C;
+    }
+
+    .not-have {
+        font-weight: 500;
+        font-size: 15px;
+        width: 90%;
+        margin: 20px auto 100px auto;
+        text-align: center;
+    }
+
+    .actions {
+        bottom: -100px;
+        width: 100%;
+        padding: 0 25%;
+    
+        button {
+            font-size: 15px;
+            width: 118px;
+            height: 40px;
+            border-radius: 10px;
+        }
+        
+        .cancel-button {
+            border-color: #02A388;
+            border-width: 3px;
+            color: #02A388;
+        }
+    
+        .next-button {
+            color: #fff;
+            background-color: #02A388;
+        }
+    }
+}

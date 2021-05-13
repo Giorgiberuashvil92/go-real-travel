@@ -1,0 +1,16 @@
+<form class="wrapper" #wrapper (click)="toggleDatepicker()" [formGroup]="formGroup">
+    <img src="/assets/calendar-icon.svg" alt="">
+
+    <div class="numbers" *ngIf="date" [ngClass]="{ 'numbers__editable': isEditable }">
+        {{ parseDate(date) }}
+    </div>
+
+    <div class="numbers" *ngIf="!date">
+        mm/dd/yyyy
+    </div>
+
+    <mat-form-field class="example-full-width" appearance="fill" *ngIf="datepickerPositions && isEditable">
+        <input matInput [matDatepicker]="picker" formControlName="dateControl" [min]="minDate">
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+</form>

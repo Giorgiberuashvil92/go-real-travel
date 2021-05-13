@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="15.479" height="12" viewBox="0 0 15.479 12">
+  <g id="bed" transform="translate(0 -57.531)">
+    <path id="Path_71" data-name="Path 71" d="M11.586,224.645H24.5a.963.963,0,0,0,0-1.927H11.586a.963.963,0,0,0,0,1.927Z" transform="translate(-10.302 -160.193)" fill="#02a388"/>
+    <path id="Path_72" data-name="Path 72" d="M271.51,153.983a.51.51,0,0,0-.51.51v.661h3.946v-.661a.51.51,0,0,0-.51-.51Z" transform="translate(-262.807 -93.536)" fill="#02a388"/>
+    <path id="Path_73" data-name="Path 73" d="M33.244,60.957a1.418,1.418,0,0,1,1.417-1.417h2.927a1.411,1.411,0,0,1,.963.379,1.411,1.411,0,0,1,.963-.379h2.927a1.418,1.418,0,0,1,1.417,1.417v.661h1.472V58.494a.963.963,0,0,0-.963-.963H32.735a.963.963,0,0,0-.963.963v3.124h1.472Z" transform="translate(-30.811)" fill="#02a388"/>
+    <path id="Path_74" data-name="Path 74" d="M110.971,153.983a.51.51,0,0,0-.51.51v.661h3.946v-.661a.51.51,0,0,0-.51-.51Z" transform="translate(-107.122 -93.536)" fill="#02a388"/>
+    <path id="Path_75" data-name="Path 75" d="M0,316.452v4.172H.907v-1.654H14.572v1.654h.907v-4.172Z" transform="translate(0 -251.093)" fill="#02a388"/>
+  </g>
+</svg>

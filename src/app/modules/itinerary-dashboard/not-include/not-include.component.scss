@@ -1,0 +1,99 @@
+.wrapper {
+    width: 100%;
+    padding-top: 35px;
+    font-weight: 500;
+
+    .least-days-error {
+        width: 90%;
+        height: 80%;
+        border-width: 1px;
+        border-color: #C25A5A;
+        border-radius: 10px;
+        color: #C25A5A;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 15px;
+        margin: 18px auto 5px;
+
+        .text {
+            font-size: 14px;
+            margin-left: 10px;
+        }
+    }
+
+    .city {
+        margin-top: 20px;
+
+        .name {
+            color: #C25A5A;
+            font-size: 22px;
+            font-weight: 600;
+            margin-left: 3px;
+            margin-bottom: 5px;
+        }
+
+        .places-wrapper {
+            margin-top: 10px;
+
+            .place {
+                .image {
+                    width: 90px;
+                    height: 90px;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-position: center;
+                    border-radius: 10px;
+                }
+            
+                .detail-wrapper {
+                    position: relative;
+                    margin-left: 20px;
+                    display: flex;
+                    flex-flow: column;
+                    justify-content: center;
+            
+                    .title, .self-guided {
+                        font-size: 14px;
+                        font-weight: 700;
+                        color: #02A388;
+                        max-width: 160px;
+                    }
+            
+                    .time-interval {
+                        font-size: 12px;
+                        font-weight: 700;
+                        color: #868B9B;
+                    }
+                }
+            }
+        }
+    }
+
+
+
+    .actions {
+        bottom: -90px;
+        width: 100%;
+        padding: 0 15%;
+        
+        button {
+            font-size: 17px;
+            width: 138px;
+            height: 50px;
+            border-radius: 10px;
+            font-weight: 600;
+        }
+        
+        .cancel-button {
+            border-color: #02A388;
+            border-width: 3px;
+            color: #02A388;
+        }
+    
+        .ok-button {
+            color: #fff;
+            background-color: #02A388;
+        }
+    }
+}
